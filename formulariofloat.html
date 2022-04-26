@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(219, 219, 219);
+        }
+        .form{
+            background: rgb(211, 255, 150);
+            text-align: center;
+            width: 250px;
+            max-width: 250px;
+            height: 200px;
+            max-height: 500px;
+            margin: auto;
+            padding: 10px;
+            border: 3px solid #73AD21;
+        }
+        .textbox{
+            width: 20%;
+            max-width: 150px;
+            background: rgb(232, 255, 199);
+            border-radius: 8px;
+            border: 2px solid rgb(177, 212, 128);
+            transition-duration: 1s;
+        }
+        .textbox:focus{
+            color:lightcyan;
+            background: #73AD21;
+            animation-name: cima;
+            animation-duration: 2s;
+        }
+        .textbox:default{
+            animation-name: cima;
+            animation-duration: 2s;
+            animation-direction: reverse;
+        }
+        .reset{
+            float: left;
+            background: rgb(232, 255, 199);
+            border-radius: 1px 8px;
+            border: 2px solid rgb(177, 212, 128);
+            padding: 5px;
+        }
+        .reset:hover{
+            background: #73AD21;
+            color:lightcyan;
+        }
+        .reset:active{
+            background: #73AD;
+            color:lightcyan;
+            border: 2px solid rgba(68, 9, 114, 0.867);
+        }
+        .submit{
+            float: right;
+            background: rgb(232, 255, 199);
+            border-radius: 1px 8px;
+            border: 2px solid rgb(177, 212, 128);
+            padding: 5px;
+        }
+        .submit:hover{
+            background: #73AD21;
+            color:lightcyan;
+        }
+        .submit:active{
+            background: #73AD;
+            color:lightcyan;
+            border: 2px solid rgba(68, 9, 114, 0.867);
+        }
+        @keyframes cima{
+            from {width: 20%;}
+            to {width: 100%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <form action="formulariofloat.html">
+            <h3>Cadastro</h3>
+            <label for="name">Nome:</label><br>
+            <input class="textbox" type="text" id="name" value="Nome"><br>
+            <label for="nota">Nota:</label><br>
+            <input class="textbox" type="text" id="nota" value="Nota"><br>
+            <br><br>
+            <input class="reset" type="reset" value="Limpar">
+            <input class="submit" type="submit" value="Enviar" onclick="enviar()">
+        </form>
+    </div>
+    <script>
+        function enviar(){
+            var nome, nota, mencao, texto;
+            nome = document.getElementById("name").value;
+            nota = parseFloat(document.getElementById("nota").value);
+            
+            if (nota < 5){
+                mencao = "I";
+            } else if (nota >= 5 && nota < 7){
+                mencao = "R";
+            } else if (nota >= 7 && nota < 9){
+                mencao = "B";
+            } else if (nota >= 9){
+                mencao = "MB";
+            } else{
+                mencao = "# Erro # Valor não numérico"
+            }
+
+            texto = "Nome: " + nome + "\nMenção: " + mencao;
+            alert(texto);
+        }
+    </script>
+</body>
+</html>
